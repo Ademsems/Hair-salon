@@ -87,7 +87,7 @@ export default function ShopPage({ dynamicShop }: { dynamicShop: DynamicShopOver
   const { t, lang, dict } = useI18n();
   const [bookingOpen,     setBookingOpen]     = useState(false);
   const [serviceSearch,   setServiceSearch]   = useState("");
-  const [serviceCategory, setServiceCategory] = useState<"all"|"haircut"|"beard"|"combo">("all");
+  const [serviceCategory, setServiceCategory] = useState<"all"|"cut"|"color"|"treatment"|"styling">("all");
 
   // ── Merge: dynamic data overrides static config ──────────────────────────
   // Everything except name/phone/address comes from shopData.ts as normal.
@@ -191,7 +191,7 @@ export default function ShopPage({ dynamicShop }: { dynamicShop: DynamicShopOver
                 />
               </div>
               <div className="flex gap-2">
-                {(["all","haircut","beard","combo"] as const).map((cat) => (
+                {(["all","cut","color","treatment","styling"] as const).map((cat) => (
                   <button key={cat} onClick={() => setServiceCategory(cat)}
                     className={`px-4 py-2 rounded-full text-xs font-semibold transition-all ${
                       serviceCategory === cat
