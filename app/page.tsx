@@ -81,7 +81,7 @@ export default function Home() {
   const { t, lang, dict } = useI18n();
   const [bookingOpen, setBookingOpen] = useState(false);
   const [serviceSearch, setServiceSearch] = useState("");
-  const [serviceCategory, setServiceCategory] = useState<"all" | "haircut" | "beard" | "combo">("all");
+  const [serviceCategory, setServiceCategory] = useState<"all"|"cut"|"color"|"treatment"|"styling">("all");
 
   // Parallax hero
   const heroRef = useRef(null);
@@ -205,7 +205,7 @@ export default function Home() {
                 />
               </div>
               <div className="flex gap-2">
-                {(["all","haircut","beard","combo"] as const).map((cat) => (
+                {(["all","cut","color","treatment","styling"] as const).map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setServiceCategory(cat)}
